@@ -1,24 +1,31 @@
 import { response } from "../externalData/Response.ts";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import {CharacterType} from "../types/ResponseTypes.ts";
 import CharacterInfo from "./CharacterInfo.tsx";
+import {CharacterProps} from "../types/ComponentProps.ts";
 
-export default function Character() {
+export default function Character({ searchQuery }: CharacterProps) {
 
-    const [character, setCharacter] = useState<CharacterType[]>(response);
+    const [characters, setCharacters] = useState<CharacterType[]>(response);
 
-    console.log(character);
-    //setCharacter()
+    useEffect((): void => {
+        setCharacters(
+            response.filter(character =>
+                character.name.toLowerCase().includes(searchQuery.toLowerCase())
+        ));
+    }, [searchQuery])
+
+
     return (
         <>
             {
-                character.map(char =>
+                characters.map(character =>
                     <CharacterInfo
-                        key={char.id}
-                        name={char.name}
-                        status={char.status}
-                        species={char.species}
-                        gender={char.gender}
+                        key={character.id}
+                        name={character.name}
+                        status={character.status}
+                        species={character.species}
+                        gender={character.gender}
                     />)
             }
         </>

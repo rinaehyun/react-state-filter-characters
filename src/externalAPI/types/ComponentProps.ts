@@ -4,3 +4,7 @@ export type CharacterInfoProps = {
     species: string,
     gender: string,
 }
+
+export type CharacterProps = {
+    searchQuery: string
+}
