@@ -8,3 +8,7 @@ export type CharacterInfoProps = {
 export type CharacterProps = {
     searchQuery: string
 }
+
+export type PhotoProps = {
+    image: string
+}

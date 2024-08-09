@@ -4,10 +4,10 @@ export default function CharacterInfo(props: CharacterInfoProps) {
 
     return (
         <section className={"character-info"}>
-            <h4>{props.name}</h4>
-            <h5>{props.status}</h5>
-            <h5>{props.species}</h5>
-            <h5>{props.gender}</h5>
+            <h4 style={{color: "#535bf2"}}>{props.name}</h4>
+            <h5>Stats: {props.status}</h5>
+            <h5>Species: {props.species}</h5>
+            <h5>Gender: {props.gender}</h5>
         </section>
     )
 }

@@ -12,10 +12,14 @@ function App() {
 
     return (
         <>
-            <input
-                className={"search-input"}
-                onChange={handleInputChange}
-            />
+            <h1 style={{fontSize: "40px"}}>Rick and Morty Characters</h1>
+            <label className={"label-input-container"}>
+                Character Name Filter:
+                <input
+                    className={"search-input"}
+                    onChange={handleInputChange}
+                />
+            </label>
             <Character searchQuery={searchItem}/>
         </>
     )

@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {CharacterType} from "../types/ResponseTypes.ts";
 import CharacterInfo from "./CharacterInfo.tsx";
 import {CharacterProps} from "../types/ComponentProps.ts";
+import CharacterPhoto from "./CharacterPhoto.tsx";
 
 export default function Character({ searchQuery }: CharacterProps) {
 
@@ -20,13 +21,16 @@ export default function Character({ searchQuery }: CharacterProps) {
         <>
             {
                 characters.map(character =>
-                    <CharacterInfo
-                        key={character.id}
-                        name={character.name}
-                        status={character.status}
-                        species={character.species}
-                        gender={character.gender}
-                    />)
+                    <div key={character.id} className={"character-box"}>
+                        <CharacterInfo
+                            name={character.name}
+                            status={character.status}
+                            species={character.species}
+                            gender={character.gender}
+                        />
+                        <CharacterPhoto image={character.image}/>
+                    </div>
+                )
             }
         </>
     )
