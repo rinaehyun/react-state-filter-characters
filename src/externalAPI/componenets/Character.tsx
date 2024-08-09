@@ -14,6 +14,7 @@ export default function Character() {
             {
                 character.map(char =>
                     <CharacterInfo
+                        key={char.id}
                         name={char.name}
                         status={char.status}
                         species={char.species}
