@@ -1,6 +1,7 @@
 import { response } from "../externalData/Response.ts";
 import { useState } from "react";
 import {CharacterType} from "../types/ResponseTypes.ts";
+import CharacterInfo from "./CharacterInfo.tsx";
 
 export default function Character() {
 
@@ -9,6 +10,16 @@ export default function Character() {
     console.log(character);
     //setCharacter()
     return (
-        <></>
+        <>
+            {
+                character.map(char =>
+                    <CharacterInfo
+                        name={char.name}
+                        status={char.status}
+                        species={char.species}
+                        gender={char.gender}
+                    />)
+            }
+        </>
     )
 }
